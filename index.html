@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>Coming soon...</title>
+</head>
+<body>
+    <div class="content">
+        <div class="left">
+            <h1 data-aos="fade-right" data-aos-duration="1000">Coming Soon...</h1>
+            <p data-aos="fade-right" data-aos-duration="1500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis modi saepe tempora similique, 
+                minus ducimus eaque culpa repellendus ea, amet maiores alias deleniti temporibus dicta 
+                ad! Accusantium non est magni!
+            </p>
+            <div class="count" data-aos="fade-right" data-aos-duration="2000">
+                <div class="box">
+                    <h3 id="day">00</h3>
+                    <span>Jour</span>
+                </div>
+                <div class="box">
+                    <h3 id="hour">00</h3>
+                    <span>Heures</span>
+                </div>
+                <div class="box">
+                    <h3 id="minute">00</h3>
+                    <span>Minutes</span>
+                </div>
+                <div class="box">
+                    <h3 id="Second">00</h3>
+                    <span>Secondes</span>
+                </div>
+            </div>
+            <div class="verif" data-aos="fade-right" data-aos-duration="2500">
+                <a href="#">vérifier</a>
+            </div>
+            
+        </div>
+        <div class="right">
+            <div class="images" >
+                <img src="events.svg" alt="coming-img" data-aos="fade-right" data-aos-duration="2500" >
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <script>
+        let countDate = new Date('Dec 31, 2022 00:00:00').getTime();
+        function countDown(){
+            let now = new Date().getTime();
+            gap = countDate - now;
+
+            let second = 1000;
+            let minute = second * 60;
+            let hour = minute * 60;
+            let day = hour * 24;
+
+            let d = Math.floor(gap /(day));
+            let h = Math.floor((gap % (day))/(hour));
+            let m = Math.floor((gap % (hour))/(minute));
+            let s = Math.floor((gap % (minute))/(second));
+
+            document.getElementById('day').innerText = d;
+            document.getElementById('hour').innerText = h;
+            document.getElementById('minute').innerText = m;
+            document.getElementById('second').innerText = s;
+        }
+        setInterval(function(){
+            countDown();
+        },1000
+        )
+    </script>
+
+
+
+<script>
+    AOS.init();
+  </script>
+</body>
+</html>
